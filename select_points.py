@@ -46,6 +46,8 @@ def select_points(og_image):
     cv2.imshow("Warped", imgOutput)
 
     cv2.waitKey(0)
+    
+    cv2.destroyAllWindows()
 
     return coords, imgOutput
 
