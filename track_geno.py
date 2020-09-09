@@ -11,9 +11,9 @@ def drawBox(image, boundary):
     cv2.rectangle(image, (x, y), ((x + w), (y + h)), (255, 0, 255), 3, 1)
     cv2.putText(image, "Tracking...", (75, 75), cv2.FONT_HERSHEY_COMPLEX, 0.7, (0, 255, 0), 2)
 
-tracker = cv2.TrackerMOSSE_create()
+#tracker = cv2.TrackerMOSSE_create()
 # tracker = cv2.TrackerCSRT_create()
-# tracker = cv2.TrackerMedianFlow_create()
+tracker = cv2.TrackerMedianFlow_create()
 
 camera = PiCamera() #  initialize the camera and grab a reference to the raw camera capture
 camera.resolution = (1280,720)
@@ -54,22 +54,25 @@ for frame in camera.capture_continuous(rawCapture, format = 'bgr', use_video_por
 
     image = frame.array
     img = warp_image(image,coords)
-    ok, bbox = tracker.update(img)  # updates with a new bounding box in the next frame
+    ok, new_bbox = tracker.update(img)  # updates with a new bounding box in the next frame
 
     if ok:
-        drawBox(img, bbox)  # if the object is found, draw the new box on the image
+        drawBox(img, new_bbox)  # if the object is found, draw the new box on the image
 
 
         t = time.localtime()
         current_time = time.strftime("%Y/%m/%d %H:%M:%S", t)
-        x, y, w, h = int(bbox[0]), int(bbox[1]), int(bbox[2]), int(bbox[3])
+        x, y, w, h = int(new_bbox[0]), int(new_bbox[1]), int(new_bbox[2]), int(new_bbox[3])
         x_pos = x + w / 2
         y_pos = y + h / 2
 
-        with open('location.csv', 'a', newline='') as file:
-            writer = csv.writer(file)
-            writer.writerow([current_time, x_pos, y_pos])
-            
+        if new_bbox != bbox:
+            with open('location.csv', 'a', newline='') as file:
+                writer = csv.writer(file)
+                writer.writerow([current_time, x_pos, y_pos])
+
+            bbox = new_bbox
+
         #time.sleep(3)
         
     else:
