@@ -1,6 +1,6 @@
 def warp_image(image, coords):
     """
-    :param image_path: path to the image that will be warped.
+    :param image: image that will be warped. should be numpy array form?
     :param coords: coordinates of the points to be warped. Points can be selected and found using select_points.py
     :return: returns the output warped image from a top down perspective
     """
