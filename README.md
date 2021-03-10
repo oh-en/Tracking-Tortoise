@@ -18,4 +18,4 @@ It can also be seen that the tortoise spends significantly more time at his food
 
 ## Gif showing most recent 20 points connected
 
-![alt text](https://github.com/oh-en/Tracking-Tortoise/blob/master/mygif.gif?raw=true)
+![alt text](https://github.com/oh-en/Tracking-Tortoise/blob/master/tortoise.gif?raw=true)
