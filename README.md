@@ -4,7 +4,7 @@ This program was created for use on a Raspberry Pi with the camera module. It ut
 
 ## Image showing one days worth of recorded points
 
-![alt text](https://github.com/oh-en/Tracking-Tortoise/blob/master/20200916.png?raw=true)
+![alt text](https://github.com/oh-en/Tracking-Tortoise/blob/master/20200920.png?raw=true)
 
 #### Areas of Improvement
 
@@ -15,3 +15,7 @@ This program would be improved with a more accurate location reading. First, mot
 This tortoise walks a lot! Preliminary measurements indicate that on his most traveled day, he walked about a mile. These measurements are of course not the most accurate. This distance was taken by computing the sum of distances between each pixel measurement. There are major variations in each measurement. Generally, the only thing moving in the cage should be the tortoise but movement was picked up by the program in the reflection on the heat lamp. You can also see the no movement was detected in the darker areas of the image despite the tortoise walking in those areas.
 
 It can also be seen that the tortoise spends significantly more time at his food bowl than he does his large water dish. Geno walks numerous laps around the edge of the cage with occasional trips over his log.
+
+## Gif showing most recent 20 points connected
+
+![alt text](https://github.com/oh-en/Tracking-Tortoise/blob/master/mygif.gif?raw=true)
